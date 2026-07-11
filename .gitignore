@@ -5,6 +5,9 @@ __pycache__/
 venv/
 .venv/
 *.egg-info/
+backend/__pycache__/
+backend/.venv/
+*.pyc
 
 # Node / Next.js
 node_modules/
@@ -23,3 +26,12 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Frontend
+frontend/node_modules
+frontend/.next
+frontend/tsconfig.tsbuildinfo
+frontend/.env.local
+
+
+
