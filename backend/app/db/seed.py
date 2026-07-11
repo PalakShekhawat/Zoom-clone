@@ -93,5 +93,10 @@ def run():
     print("Database seeded successfully.")
 
 
+
+# Alias so it can be imported as `from app.db.seed import seed_data`
+seed_data = run
+
 if __name__ == "__main__":
     run()
+
