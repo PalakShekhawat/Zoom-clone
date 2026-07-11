@@ -6,20 +6,21 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.db.database import Base, engine
 from app.routers import meetings, users
 
-# Create tables if they don't exist yet
+# Create tables
 Base.metadata.create_all(bind=engine)
 
-# Seed sample data on startup (idempotent for demo)
+# === SEED DATA ON STARTUP ===
+from app.db.seed import seed_data
 try:
-    from app.db.seed import seed_data
     seed_data()
     print("✅ Database seeded successfully on startup")
 except Exception as e:
-    print("⚠️ Seed skipped (already done or error):", e)
+    print("⚠️ Seed skipped (already done or error):", str(e))
+# ============================
 
 app = FastAPI(title="Zoom Clone API", version="1.0.0")
 
-# CORS configuration
+# CORS
 _cors_origins = os.getenv("CORS_ORIGINS", "*")
 allow_origins = ["*"] if _cors_origins.strip() == "*" else [
     o.strip() for o in _cors_origins.split(",") if o.strip()
