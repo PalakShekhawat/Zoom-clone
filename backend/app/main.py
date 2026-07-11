@@ -10,12 +10,12 @@ from app.routers import meetings, users
 Base.metadata.create_all(bind=engine)
 
 # === SEED DATA ON STARTUP ===
-from app.db.seed import seed_data
-try:
-    seed_data()
-    print("✅ Database seeded successfully on startup")
-except Exception as e:
-    print("⚠️ Seed skipped (already done or error):", str(e))
+#from app.db.seed import seed_data
+#try:
+#    seed_data()
+#   print("✅ Database seeded successfully on startup")
+#except Exception as e:
+#    print("⚠️ Seed skipped (already done or error):", str(e))
 # ============================
 
 app = FastAPI(title="Zoom Clone API", version="1.0.0")
